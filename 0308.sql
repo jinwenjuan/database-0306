@@ -75,3 +75,19 @@ select *
 from scott.emp
 # where SAL >= 2000 and sal <=3000; -- [2000, 3000]
 where SAL between 2000 and 3000;
+
+
+select e.ename  as '员工 姓名'
+from scott.emp as e;
+
+select *
+from scott.emp
+where comm is not null;
+
+update scott.emp
+set comm = null
+where EMPNO = '7499';-- DML
+
+select ENAME, sal + ifnull(comm, 0)
+from scott.emp;
+
