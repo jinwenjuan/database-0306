@@ -54,3 +54,24 @@ select *
 from scott.emp
 limit 3 offset 0; -- offset 偏移量
 # limit 0, 3;
+
+select ENAME
+from scott.emp
+# where ENAME like '_COTT';
+where ENAME like '%\_%' escape '\\';
+
+update scott.emp
+set ENAME = 'sco_tt' where ENAME = 'scott';
+
+select *
+from scott.emp;
+
+select *
+from scott.emp
+# where JOB = 'salesman' or JOB = 'manager' or JOB = 'president';
+where job in ('salesman','manager','president');
+
+select *
+from scott.emp
+# where SAL >= 2000 and sal <=3000; -- [2000, 3000]
+where SAL between 2000 and 3000;
