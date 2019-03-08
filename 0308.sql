@@ -103,6 +103,30 @@ from scott.dept;
 
 select e.ENAME, e.DEPTNO, d.DNAME, d.DEPTNO
 from scott.emp e
-       inner join scott.dept d
-on e.DEPTNO = d.DEPTNO;
+       join scott.dept d
+            on e.DEPTNO = d.DEPTNO;
 -- 52 = 13 * 4
+
+select e.ENAME, d.DNAME
+from scott.emp e
+       left join scott.dept d
+                 on e.DEPTNO = d.DEPTNO;
+
+select e.ENAME, d.DNAME
+from scott.dept d
+       right join scott.emp e
+                  on e.DEPTNO = d.DEPTNO -- KING
+
+union -- all
+
+select e.ENAME, d.DNAME
+from scott.emp e
+       right join scott.dept d
+                  on e.DEPTNO = d.DEPTNO; -- OPERATIONS
+
+select e.ENAME, e.DEPTNO, d.DNAME, d.DEPTNO
+from scott.emp e
+       join scott.dept d
+  #                  on e.DEPTNO = d.DEPTNO;
+            using (deptno);
+
