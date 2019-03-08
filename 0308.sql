@@ -48,3 +48,9 @@ order by JOb, ENAME desc ;
 select comm
 from scott.emp
 order by COMM;
+
+
+select *
+from scott.emp
+limit 3 offset 0; -- offset 偏移量
+# limit 0, 3;
