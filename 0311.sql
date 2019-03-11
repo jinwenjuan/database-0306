@@ -65,11 +65,29 @@ start transaction;
 -- DMLs
 delete
 from scott.emp
-where ENAME = 'allen';
+where ENAME = 'jones';
+
+savepoint a;
+
+update scott.emp
+set sal = 2000
+where ENAME = 'martin';
+
+savepoint b;
+
+delete from scott.emp;
 
 select *
 from scott.emp;
 
+rollback to b; -- 结束事务？
+rollback to a;
+
 rollback; -- 回滚
 commit; -- 提交
+
+-- DDL
+create table scott.test(
+  id int
+);
 
