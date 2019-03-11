@@ -91,3 +91,16 @@ create table scott.test(
   id int
 );
 
+select deptno, avg(sal)
+# select sum(sal)
+# select min(sal), max(sal)
+# select count(*)
+# select sum(ename)
+from scott.emp
+group by DEPTNO;
+
+select JOB, max(HIREDATE)
+from scott.emp
+group by job
+having JOB in ('clerk', 'manager'); -- 组检索 / where 行检索 / 投影 列检索
+
