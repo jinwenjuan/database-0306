@@ -1,3 +1,5 @@
+# noinspection SqlWithoutWhereForFile
+
 create table scott.new_emp
 select *
 from scott.emp;
@@ -39,3 +41,35 @@ from scott.emp e
 select *
 from scott.v_name
 where ENAME = 'allen';
+
+-- install
+-- conf
+-- basic
+-- dialect
+
+-- sal 大于 scott 员工 sal ？
+select sal
+from scott.emp
+where ENAME = 'sco_tt';
+
+select *
+from scott.emp
+where sal > (
+  select sal
+  from scott.emp
+  where ENAME = 'sco_tt'
+); -- sub query 子查询
+
+
+start transaction;
+-- DMLs
+delete
+from scott.emp
+where ENAME = 'allen';
+
+select *
+from scott.emp;
+
+rollback; -- 回滚
+commit; -- 提交
+
