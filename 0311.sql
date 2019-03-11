@@ -104,3 +104,26 @@ from scott.emp
 group by job
 having JOB in ('clerk', 'manager'); -- 组检索 / where 行检索 / 投影 列检索
 
+select abs(-1);
+select bin(-1);
+select pi();
+select rtrim('   test   ');
+select ltrim('   test   ');
+select trim('   test   ');
+
+select lower(ename)
+from scott.emp;
+
+update scott.emp
+set ENAME = lower(ename);
+
+select *
+from scott.emp;
+
+select current_date;
+select now();
+
+select date_add(now(), interval 1 year);
+select dayofweek('2019-3-16');
+select week(now());
+select year(now());
