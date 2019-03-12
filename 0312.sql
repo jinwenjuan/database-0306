@@ -30,3 +30,16 @@ limit 100 offset 0;
 select password
 from db_csdn.user
 where password regexp '^\198[0-9]{1}[0-9]{1,2}[0-9]{1,2}$';
+
+
+
+
+
+
+
+
+
+
+
+
+
