@@ -27,6 +27,29 @@ foreign key (userId)
 references db_ec.user(id);
 
 
+-- category table
+
+-- user table
+drop table if exists db_ec.category;
+create table db_ec.category(
+  id int auto_increment primary key comment 'id PK',
+  title varchar(255) not null comment 'title NN',
+  picture varchar(255) comment 'category picture',
+  categoryId int comment 'parent category id FK'
+)comment 'category table';
+
+-- product table
+drop table if exists db_ec.product;
+create table db_ec.product(
+  id int auto_increment primary key comment 'id PK',
+  title varchar(255) not null comment 'title NN',
+  price decimal(8,2) not null comment 'price NN',
+  originalPrice decimal(8,2) comment 'original price',
+  -- slide pictures ?
+  -- detail pictures ?
+  categoryId int comment 'category id FK'
+) comment 'product table';
+
 
 select *
 from db_ec.user;
